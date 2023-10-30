@@ -1,13 +1,37 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
+# .net
+obj
+bin
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.sln.ide
+*.vspscc
+*.vssscc
+*.cache
+*.vsidx
+*.bin
+*.v2
+
+# angular
+dist
+*.log
+*.log.*
+*.pid
+*.seed
+*.pid.lock
+.angular
+
+
 # Compiled output
-/dist
-/tmp
-/out-tsc
-/bazel-out
+tmp
+out-tsc
+bazel-out
 
 # Node
-/node_modules
+node_modules
 npm-debug.log
 yarn-error.log
 
