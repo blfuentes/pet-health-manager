@@ -8,8 +8,15 @@ The application will serve as management system of your pets.
 - Frontend: Angular v16.2.x
     - Material
 - Backend: .net core 7 web api
-    - Database: 
+    - Database: To be decided
 - Unit testing
 
 ## Functionalities
-
+- Main page with display of all current pets
+- CRUD of pets
+- Access to historical of parameters
+    - Weight
+        - daily weight with variation
+        - avg week weight with variation
+    - vet appointments
+- Graphs
