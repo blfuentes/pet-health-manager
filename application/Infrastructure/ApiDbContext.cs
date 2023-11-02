@@ -12,6 +12,7 @@ public class ApiDbContext : DbContext
 
     public DbSet<Pet> Pets => Set<Pet>();
     public DbSet<Color> Colors => Set<Color>();
+    public DbSet<WeightRegistry> WeightRegistries => Set<WeightRegistry>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
