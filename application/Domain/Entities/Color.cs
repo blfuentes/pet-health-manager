@@ -10,4 +10,6 @@ public class Color
     [DatabaseGenerated(DatabaseGeneratedOption.None)]
     public int Id { get; set; }
     public string Name { get; set; } = default!;
+
+    public virtual ICollection<Pet> Pets { get; set; } = new HashSet<Pet>();
 }

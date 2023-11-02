@@ -5,17 +5,18 @@ namespace application.Infrastructure;
 
 public class ApiDbContext : DbContext
 {
+    public ApiDbContext() { }
     public ApiDbContext(DbContextOptions<ApiDbContext> options) : base(options)
     {
     }
 
     public DbSet<Pet> Pets => Set<Pet>();
-    public DbSet<Color> PetColors => Set<Color>();
+    public DbSet<Color> Colors => Set<Color>();
 
-    protected override void OnModelCreating(ModelBuilder builder)
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        base.OnModelCreating(builder);
+        base.OnModelCreating(modelBuilder);
 
-        builder.ApplyConfigurationsFromAssembly(typeof(ApiDbContext).Assembly);
+        modelBuilder.ApplyConfigurationsFromAssembly(typeof(ApiDbContext).Assembly);
     }
 }

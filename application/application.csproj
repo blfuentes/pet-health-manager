@@ -10,14 +10,21 @@
     <Folder Include="Common\Behaviours\" />
     <Folder Include="Domain\Events\" />
     <Folder Include="Features\" />
-    <Folder Include="Infrastructure\Persistence\" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="MediatR" />
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
   </ItemGroup>
 
 </Project>
