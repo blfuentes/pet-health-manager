@@ -1,4 +1,5 @@
-﻿using application.Infrastructure;
+﻿using application.Common.Behaviours;
+using application.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 
 namespace webapi.Extensions;
@@ -12,6 +13,17 @@ public static class ServiceCollectionExtensions
         services.AddDbContext<ApiDbContext>(options => options.UseSqlServer(connectionString));
 
         services.AddDatabaseDeveloperPageExceptionFilter();
+
+        return services;
+    }
+
+    public static IServiceCollection AddMediator(this IServiceCollection services)
+    {
+        services.AddMediatR(config =>
+        {
+            config.RegisterServicesFromAssembly(typeof(application.Application).Assembly);
+            config.AddOpenBehavior(typeof(TransactionBehaviour<,>));
+        });
 
         return services;
     }
