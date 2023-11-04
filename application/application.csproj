@@ -8,10 +8,10 @@
 
   <ItemGroup>
     <Folder Include="Domain\Events\" />
-    <Folder Include="Features\" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" />
     <PackageReference Include="MediatR" />
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" />
