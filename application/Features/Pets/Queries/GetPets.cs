@@ -36,16 +36,7 @@ public class GetPets
         public GetProductsMappingProfile()
         {
             CreateMap<Pet, GetPetsResponse>();
-            //.ForMember(
-            //    d => d.Colors,
-            //    opt => opt.MapFrom(p => p.Colors.Any() ? p.Colors.Select(c => c.Name) : new List<string>())
-            //);
             CreateMap<GetPetsResponse, Pet>();
-            //    .ForMember(
-            //        d => d.Colors,
-            //        opt => opt.MapFrom(p => p.Colors.Select(c => new Color() { Name = c }))
-            //);
-
             CreateMap<Color, string>().ConvertUsing(r => r.Name);
             CreateMap<string, Color>().ConvertUsing(source => new Color { Name = source });
         }
