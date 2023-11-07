@@ -1,14 +1,14 @@
-import { apiConfig } from '../../../api.config'; // Import the configuration
-import { catchError, map, tap } from 'rxjs/operators';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { MessageService } from '../../messages/services/message.service';
-import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { apiConfig } from "../../../api.config"; // Import the configuration
+import { catchError, map, tap } from "rxjs/operators";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { MessageService } from "../../messages/services/message.service";
+import { Injectable } from "@angular/core";
+import { Observable, of } from "rxjs";
 
-import { Pet } from '../models/pet';
+import { Pet } from "../models/pet";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root"
 })
 export class PetsService {
   private petsUrl = `${apiConfig.baseUrl}:${apiConfig.port}/api/pets`;
@@ -24,19 +24,19 @@ export class PetsService {
   getPets(): Observable<Pet[]> {
     return this.http.get<Pet[]>(this.petsUrl)
       .pipe(
-        tap(_ => this.log('fetched pets')),
-        catchError(this.handleError<Pet[]>('getPets', []))
+        tap(_ => this.log("fetched pets")),
+        catchError(this.handleError<Pet[]>("getPets", []))
       );
   }
 
-  /**
+ /**
  * Handle Http operation that failed.
  * Let the app continue.
  *
  * @param operation - name of the operation that failed
  * @param result - optional value to return as the observable result
  */
-  private handleError<T>(operation = 'operation', result?: T) {
+  private handleError<T>(operation = "operation", result?: T) {
     return (error: any): Observable<T> => {
 
       // TODO: send the error to remote logging infrastructure
