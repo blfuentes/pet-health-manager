@@ -8,8 +8,10 @@ The application will serve as management system of your pets.
 - Frontend: Angular v17.0.x
     - Material
 - Backend: .net core 7 web api
-    - Database: To be decided
+    - Database: SQL Server
 - Unit testing
+    - Jasmine
+    - Cypress
 
 ## Functionalities
 - Main page with display of all current pets
@@ -18,5 +20,5 @@ The application will serve as management system of your pets.
     - Weight
         - daily weight with variation
         - avg week weight with variation
-    - vet appointments
+    - Vet appointments
 - Graphs
