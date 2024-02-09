@@ -5,9 +5,9 @@ Project developed in Angular for learning purposes.
 The application will serve as management system of your pets.
 
 ## Technical design
-- Frontend: Angular v17.0.x
+- Frontend: Angular v17.1.x
     - Material
-- Backend: .net core 7 web api
+- Backend: .net core 8 web api
     - Database: SQL Server
 - Unit testing
     - Jasmine
