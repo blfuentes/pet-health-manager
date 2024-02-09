@@ -14,16 +14,10 @@ public class GetPets
 
     }
 
-    public class GetPetsHandler : IRequestHandler<GetPetsQuery, IEnumerable<GetPetsResponse>>
+    public class GetPetsHandler(ApiDbContext context, IMapper mapper) : IRequestHandler<GetPetsQuery, IEnumerable<GetPetsResponse>>
     {
-        private readonly ApiDbContext _context;
-        private readonly IMapper _mapper;
-
-        public GetPetsHandler(ApiDbContext context, IMapper mapper)
-        {
-            _context = context;
-            _mapper = mapper;
-        }
+        private readonly ApiDbContext _context = context;
+        private readonly IMapper _mapper = mapper;
 
         public async Task<IEnumerable<GetPetsResponse>> Handle(GetPetsQuery request, CancellationToken cancellationToken)
         {

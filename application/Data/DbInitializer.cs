@@ -16,17 +16,17 @@ public static class DbInitializer
         }
         var petColors = new Color[]
         {
-            new Color() { Id = 1, Name = "Negro" },
-            new Color() { Id = 2, Name = "Blanco" },
-            new Color() { Id = 3, Name = "Marrón" },
-            new Color() { Id = 4, Name = "Gris" }
+            new() { Id = 1, Name = "Negro" },
+            new() { Id = 2, Name = "Blanco" },
+            new() { Id = 3, Name = "Marrón" },
+            new() { Id = 4, Name = "Gris" }
         };
         context.Colors.AddRange(petColors);
         context.SaveChanges();
 
         var pets = new Pet[]
         {
-            new Pet()
+            new()
             {
                 Name = "Lester",
                 Species = "Cobaya",
@@ -35,7 +35,7 @@ public static class DbInitializer
                 Birth = new DateTime(year: 2021, month: 9, day: 1),
                 Colors = new List<Color>(){ context.Colors.Find(1), context.Colors.Find(3), context.Colors.Find(2) }
             },
-            new Pet()
+            new()
             {
                 Name = "Paul",
                 Species = "Cobaya",
@@ -44,7 +44,7 @@ public static class DbInitializer
                 Birth = new DateTime(year: 2021, month: 11, day: 1),
                 Colors = new List<Color>(){ context.Colors.Find(1), context.Colors.Find(2) }
             },
-            new Pet()
+            new()
             {
                 Name = "Burrito",
                 Species = "Hámster",
@@ -53,7 +53,7 @@ public static class DbInitializer
                 Birth = new DateTime(year: 2022, month: 7, day: 1),
                 Colors = new List<Color>(){ context.Colors.Find(3), context.Colors.Find(2) }
             },
-            new Pet()
+            new()
             {
                 Name = "Piolla",
                 Species = "Hámster",
@@ -63,7 +63,7 @@ public static class DbInitializer
                 Death = new DateTime(year: 2022, month: 10, day: 8),
                 Colors = new List<Color>(){ context.Colors.Find(2), context.Colors.Find(4) }
             },
-            new Pet()
+            new()
             {
                 Name = "Morriña",
                 Species = "Hámster",
