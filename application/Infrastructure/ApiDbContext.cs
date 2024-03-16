@@ -95,10 +95,16 @@ public class ApiDbContext : DbContext
         return result;
     }
 
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    {
+        base.OnConfiguring(optionsBuilder);
+        optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=PetHealthManager;Trusted_Connection=True;MultipleActiveResultSets=false");
+        optionsBuilder.LogTo(Console.WriteLine);
+    }
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
-
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(ApiDbContext).Assembly);
     }
 }

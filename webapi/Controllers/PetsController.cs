@@ -1,6 +1,8 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using static application.Features.Pets.Queries.GetPet;
 using static application.Features.Pets.Queries.GetPets;
+using static application.Features.Weights.Queries.GetWeightRegistriesByPet;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -8,25 +10,23 @@ namespace webapi.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
-public class PetsController : ControllerBase
+public class PetsController(IMediator mediator) : ControllerBase
 {
-    private readonly IMediator _mediator;
-
-    public PetsController(IMediator mediator) => _mediator = mediator;
 
     // GET: api/<PetsController>
     [HttpGet]
     public async Task<IEnumerable<GetPetsResponse>> Get()
     {
-        var pets = await _mediator.Send(new GetPetsQuery());
+        var pets = await mediator.Send(new GetPetsQuery());
         return pets;
     }
 
     // GET api/<PetsController>/5
     [HttpGet("{id}")]
-    public string Get(int id)
+    public async Task<GetPetResponse> Get(int id)
     {
-        return "value";
+        var pet = await mediator.Send(new GetPetQuery(id));
+        return pet;
     }
 
     // POST api/<PetsController>

@@ -1,5 +1,8 @@
-﻿namespace application.Domain.Entities;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 
+namespace application.Domain.Entities;
+
+[Table("WeightRegistries")]
 public class WeightRegistry
 {
     public int Id { get; set; }

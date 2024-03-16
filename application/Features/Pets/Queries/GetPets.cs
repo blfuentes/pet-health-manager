@@ -9,7 +9,7 @@ namespace application.Features.Pets.Queries;
 
 public class GetPets
 {
-    public class GetPetsQuery : IRequest<IEnumerable<GetPetsResponse>>
+    public record GetPetsQuery : IRequest<IEnumerable<GetPetsResponse>>
     {
 
     }
@@ -25,9 +25,9 @@ public class GetPets
         }
     }
 
-    public class GetProductsMappingProfile : Profile
+    public class GetPetsMappingProfile : Profile
     {
-        public GetProductsMappingProfile()
+        public GetPetsMappingProfile()
         {
             CreateMap<Pet, GetPetsResponse>();
             CreateMap<GetPetsResponse, Pet>();
