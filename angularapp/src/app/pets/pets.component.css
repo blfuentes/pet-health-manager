@@ -1,0 +1,11 @@
+.pets-container {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+}
+
+.pet-detail {
+  width: 400px;
+  height: 200px;
+  background-color: red;
+}

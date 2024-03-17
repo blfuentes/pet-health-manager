@@ -13,6 +13,7 @@ export class PetsComponent {
   constructor(private petService: PetsService) { }
 
   pets: Pet[] = [];
+  currentPet: Pet | undefined;
 
   ngOnInit(): void {
     this.getPets();
@@ -20,5 +21,9 @@ export class PetsComponent {
 
   getPets() {
     this.petService.getPets().subscribe(pets => this.pets = pets);
+  }
+
+  getPet(petid: number) {
+    this.petService.loadPet(petid).subscribe(pet => this.currentPet = pet);
   }
 }

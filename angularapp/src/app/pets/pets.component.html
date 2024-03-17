@@ -1,9 +1,14 @@
 <h2>My Pets</h2>
 
-<ul class="pets">
-  @for (pet of pets; track pet.id) {
-  <li>
-    <span class="badge">{{ pet.id }}</span> {{ pet.name }}
-  </li>
-  }
-</ul>
+<div class="pets-container">
+  <ul class="pets">
+    @for (pet of pets; track pet.id) {
+    <li (click)="getPet(pet.id)">
+      <span class="badge">{{ pet.id }}</span> {{ pet.name }}
+    </li>
+    }
+  </ul>
+  <div class="pet-detail">
+    <app-pet *ngIf="currentPet"></app-pet>
+  </div>
+</div>

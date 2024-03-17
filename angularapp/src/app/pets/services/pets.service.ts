@@ -1,6 +1,6 @@
 import { apiConfig } from "../../../api.config"; // Import the configuration
 import { catchError, map, tap } from "rxjs/operators";
-import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { HttpClient, HttpHeaders, HttpParams } from "@angular/common/http";
 import { MessageService } from "../../messages/services/message.service";
 import { Injectable } from "@angular/core";
 import { Observable, of } from "rxjs";
@@ -8,37 +8,44 @@ import { Observable, of } from "rxjs";
 import { Pet } from "../models/pet";
 
 @Injectable({
-  providedIn: "root"
+  providedIn: "root",
 })
 export class PetsService {
   private petsUrl = `${apiConfig.baseUrl}:${apiConfig.port}/api/pets`;
+  private petUrl = `${apiConfig.baseUrl}:${apiConfig.port}/api/pets`;
 
   constructor(
     private http: HttpClient,
-    private messageService: MessageService) { }
+    private messageService: MessageService
+  ) {}
 
   private log(message: string) {
     this.messageService.add(`PetsService: ${message}`);
   }
 
   getPets(): Observable<Pet[]> {
-    return this.http.get<Pet[]>(this.petsUrl)
-      .pipe(
-        tap(_ => this.log("fetched pets")),
-        catchError(this.handleError<Pet[]>("getPets", []))
-      );
+    return this.http.get<Pet[]>(this.petsUrl).pipe(
+      tap((_) => this.log('fetched pets')),
+      catchError(this.handleError<Pet[]>('getPets', []))
+    );
   }
 
- /**
- * Handle Http operation that failed.
- * Let the app continue.
- *
- * @param operation - name of the operation that failed
- * @param result - optional value to return as the observable result
- */
+  loadPet(petid: number): Observable<Pet> {
+     return this.http.get<Pet>(`${this.petUrl}/${petid}`).pipe(
+       tap((_) => this.log(`getting data for pet ${petid}`)),
+       catchError(this.handleError<Pet>('getPet', undefined))
+     );
+  }
+
+  /**
+   * Handle Http operation that failed.
+   * Let the app continue.
+   *
+   * @param operation - name of the operation that failed
+   * @param result - optional value to return as the observable result
+   */
   private handleError<T>(operation = "operation", result?: T) {
     return (error: any): Observable<T> => {
-
       // TODO: send the error to remote logging infrastructure
       console.error(error); // log to console instead
 
