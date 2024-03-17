@@ -8,7 +8,8 @@ The application will serve as management system of your pets.
 - Frontend: Angular v17.1.x
     - Material
 - Backend: .net core 8 web api
-    - Database: SQL Server
+    - Database: SQL Server with EF core
+    - Serilog
 - Unit testing
     - Jasmine
     - Cypress

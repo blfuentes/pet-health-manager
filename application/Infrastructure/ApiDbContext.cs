@@ -3,6 +3,7 @@ using application.Domain.Entities;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 
 namespace application.Infrastructure;
@@ -12,18 +13,27 @@ public class ApiDbContext : DbContext
     private readonly IPublisher _publisher;
     private readonly ILogger<ApiDbContext> _logger;
     private IDbContextTransaction? _currentTransaction;
+    private readonly IConfiguration _configuration;
 
     public ApiDbContext() { }
-    public ApiDbContext(DbContextOptions<ApiDbContext> options, IPublisher publisher, ILogger<ApiDbContext> logger) : base(options)
+
+    public ApiDbContext
+        (DbContextOptions<ApiDbContext> options, 
+        IPublisher publisher, 
+        ILogger<ApiDbContext> logger, 
+        IConfiguration configuration) : base(options)
     {
         _publisher = publisher;
         _logger = logger;
+        _configuration = configuration;
 
         _logger.LogDebug("DbContext created.");
     }
 
     public DbSet<Pet> Pets => Set<Pet>();
+
     public DbSet<Color> Colors => Set<Color>();
+
     public DbSet<WeightRegistry> WeightRegistries => Set<WeightRegistry>();
 
     public async Task BeginTransactionAsync()
@@ -98,8 +108,8 @@ public class ApiDbContext : DbContext
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         base.OnConfiguring(optionsBuilder);
-        optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=PetHealthManager;Trusted_Connection=True;MultipleActiveResultSets=false");
-        optionsBuilder.LogTo(Console.WriteLine);
+        optionsBuilder.UseSqlServer(_configuration.GetConnectionString("Default"));
+        //optionsBuilder.LogTo(Console.WriteLine);
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
