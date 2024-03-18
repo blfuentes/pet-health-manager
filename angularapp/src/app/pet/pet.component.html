@@ -1,1 +1,14 @@
-<p>pet works!</p>
+<div class="pet">
+  <h2 class="pet-name">{{currentPet.name}}</h2>
+  <p class="pet-species">{{currentPet.species}}</p>
+  <p class="pet-breed">{{currentPet.breed}}</p>
+  <p class="pet-birth">Birth: {{currentPet.birth | date}}</p>
+  <p class="pet-adoption">Adoption: {{currentPet.adoption | date}}</p>
+  <p class="pet-death" *ngIf="currentPet.death">Death: {{currentPet.death | date}}</p>
+  <div class="pet-colors">
+    <p>Colors:</p>
+    <ul>
+      <li *ngFor="let color of currentPet.colors">{{color}}</li>
+    </ul>
+  </div>
+</div>

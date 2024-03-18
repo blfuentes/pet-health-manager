@@ -17,7 +17,11 @@ public class GetPet
         {
             logger.LogInformation("Getting pet with ID {ID}", request.Id);
 
-            return mapper.Map<GetPetResponse>(await context.Pets.FindAsync(request.Id));
+            var pet = await context.Pets.FindAsync(request.Id);
+            if (pet is not null)
+                 await context.Entry(pet).Collection(p => p.Colors).LoadAsync(cancellationToken);
+
+            return mapper.Map<GetPetResponse>(pet);
         }
     }
 
@@ -32,5 +36,15 @@ public class GetPet
         }
     }
 
-    public record GetPetResponse(int Id, string Name, string Species, string Breed, DateTime Birth, DateTime? Death, DateTime Adoption);
+    public class GetPetResponse
+    {
+        public int Id { get; set; }
+        public required string Name { get; set; }
+        public required string Species { get; set; }
+        public required string Breed { get; set; }
+        public IEnumerable<string> Colors { get; set; } = [];
+        public DateTime Birth { get; set; }
+        public DateTime? Death { get; set; }
+        public DateTime Adoption { get; set; }
+    }
 }

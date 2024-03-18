@@ -37,5 +37,15 @@ public class GetPets
         }
     }
 
-    public record GetPetsResponse(int Id, string Name, string Species, string Breed, IEnumerable<string> Colors, DateTime Birth, DateTime? Death, DateTime Adoption);
+    public class GetPetsResponse
+    {
+        public int Id { get; set; }
+        public required string Name { get; set; }
+        public required string Species { get; set; }
+        public required string Breed { get; set; }
+        public IEnumerable<string> Colors { get; set; } = [];
+        public DateTime Birth { get; set; }
+        public DateTime? Death { get; set; }
+        public DateTime Adoption { get; set; }
+    }
 }
