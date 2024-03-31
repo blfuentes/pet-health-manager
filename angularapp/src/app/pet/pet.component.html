@@ -11,4 +11,6 @@
       <li *ngFor="let color of currentPet.colors">{{color}}</li>
     </ul>
   </div>
+  <button type="button" id="pet-{{currentPet.id}}"
+    (click)="loadWeights(currentPet.id)">Load weights</button>
 </div>

@@ -1,3 +1,5 @@
+import { Weight } from "src/app/weight-list/models/weight";
+
 export interface Pet {
   id: number;
   name: string;
@@ -7,4 +9,5 @@ export interface Pet {
   death?: Date;
   adoption: Date;
   colors: string[];
+  weights: Weight[];
 }

@@ -11,4 +11,7 @@
   <div class="pet-detail">
     <app-pet *ngIf="currentPet" [currentPet]="currentPet"></app-pet>
   </div>
+  <div class="weights-list">
+    <app-weight-list *ngIf="currentPet" [currentWeights]="currentPet.weights"></app-weight-list>
+  </div>
 </div>

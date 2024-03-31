@@ -33,7 +33,7 @@ export class PetsService {
   loadPet(petid: number): Observable<Pet> {
      return this.http.get<Pet>(`${this.petUrl}/${petid}`).pipe(
        tap((_) => this.log(`getting data for pet ${petid}`)),
-       catchError(this.handleError<Pet>('getPet', undefined))
+       catchError(this.handleError<Pet>('loadPet', undefined))
      );
   }
 
