@@ -3,10 +3,36 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
+/* Variables */
+@property --primary-color {
+  initial-value: #D9D9D9;
+  syntax: '<color>';
+  inherits: false;
+}
+
+@property --secondary-color {
+  initial-value: #A1B4D8;
+  syntax: '<color>';
+  inherits: false;
+}
+
+@property --tertiary-color {
+  initial-value: #6E7599;
+  syntax: '<color>';
+  inherits: false;
+}
+
+@property --separator-color {
+  initial-value: #8C7DE8;
+  syntax: '<color>';
+  inherits: false;
+}
+
 .app-container {
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   gap: 10px 30px;
+  background-color: var(--primary-color);
 }

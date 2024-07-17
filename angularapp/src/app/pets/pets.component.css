@@ -1,7 +1,11 @@
+.pets-list-container {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+}
+
 .pets-container {
-    display: flex;
-    flex-direction: row;
-    gap: 30px;
+  background-color: var(--tertiary-color);
 }
 
 .pet-detail {

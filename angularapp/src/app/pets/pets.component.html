@@ -1,17 +1,19 @@
-<h2>My Pets</h2>
-
 <div class="pets-container">
-  <ul class="pets">
-    @for (pet of pets; track pet.id) {
-    <li (click)="getPet(pet.id)">
-      <span class="badge">{{ pet.id }}</span> {{ pet.name }}
-    </li>
-    }
-  </ul>
-  <div class="pet-detail">
-    <app-pet *ngIf="currentPet" [currentPet]="currentPet"></app-pet>
-  </div>
-  <div class="weights-list">
-    <app-weight-list *ngIf="currentPet" [currentWeights]="currentPet.weights"></app-weight-list>
+  <h2>My Pets</h2>
+
+  <div class="pets-list-container">
+    <ul class="pets">
+      @for (pet of pets; track pet.id) {
+      <li (click)="getPet(pet.id)">
+        <span class="badge">{{ pet.id }}</span> {{ pet.name }}
+      </li>
+      }
+    </ul>
+    <div class="pet-detail">
+      <app-pet *ngIf="currentPet" [currentPet]="currentPet"></app-pet>
+    </div>
+    <div class="weights-list">
+      <app-weight-list *ngIf="currentPet" [currentWeights]="currentPet.weights"></app-weight-list>
+    </div>
   </div>
 </div>
