@@ -1,4 +1,9 @@
-h1 {
+.app-container {
     background-color: var(--secondary-color);
-    border-bottom: 2px solid var(--separator-color);
+}
+.header-container {
+    border-bottom: 8px solid var(--separator-color);
+}
+h1 {
+  margin: 0px;
 }

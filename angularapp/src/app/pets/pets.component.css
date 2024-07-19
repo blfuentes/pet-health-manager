@@ -6,6 +6,7 @@
 
 .pets-container {
   background-color: var(--tertiary-color);
+  border-bottom: 8px solid var(--separator-color);
 }
 
 .pet-detail {
