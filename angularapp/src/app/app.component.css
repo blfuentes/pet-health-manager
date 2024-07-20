@@ -1,9 +1,19 @@
 .app-container {
-    background-color: var(--secondary-color);
+  background-color: var(--secondary-color);
 }
+
 .header-container {
-    border-bottom: 8px solid var(--separator-color);
+  border-bottom: 8px solid var(--separator-color);
+  background-color: #4b0082;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
 }
-h1 {
-  margin: 0px;
-}
+
+  .header-container h1 {
+    margin: 0;
+    font-size: 2.5em;
+  }

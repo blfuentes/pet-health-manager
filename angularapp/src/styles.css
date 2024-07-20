@@ -1,7 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
 
+@import url('https://fonts.googleapis.com/css2?family=Calibri:wght@400;700&display=swap');
+
+
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body {
+    margin: 0;
+    font-family: 'Calibri', sans-serif !important;
+}
+
+.mat-typography, .mat-typography * {
+  font-family: 'Calibri', sans-serif !important;
+}
+
+  .mat-h1, .mat-headline-5, .mat-typography .mat-h1, .mat-typography .mat-headline-5, .mat-typography h1 {
+    font-family: 'Calibri', sans-serif !important;
+  }
 
 /* Variables */
 @property --primary-color {
@@ -24,6 +38,12 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 @property --separator-color {
   initial-value: #8C7DE8;
+  syntax: '<color>';
+  inherits: false;
+}
+
+@property --highlight-color {
+  initial-value: #4b0082;
   syntax: '<color>';
   inherits: false;
 }

@@ -4,9 +4,11 @@
   <p class="pet-breed">{{currentPet.breed}}</p>
   <p class="pet-birth">Birth: {{currentPet.birth | date}}</p>
   <p class="pet-adoption">Adoption: {{currentPet.adoption | date}}</p>
-  <p class="pet-death" *ngIf="currentPet.death">Death: {{currentPet.death | date}}</p>
+  <p class="pet-death" *ngIf="currentPet.death; else aliveTemplate">Death: {{currentPet.death | date}}</p>
+  <ng-template #aliveTemplate>
+    <p class="pet-alive">Alive</p>
+  </ng-template>
   <div class="pet-colors">
-    <p>Colors:</p>
     <ul>
       <li *ngFor="let color of currentPet.colors">{{color}}</li>
     </ul>

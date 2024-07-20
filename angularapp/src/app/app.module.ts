@@ -10,6 +10,7 @@ import { MessagesComponent } from './messages/messages.component';
 import { PetComponent } from './pet/pet.component';
 import { WeightListComponent } from './weight-list/weight-list.component';
 import { MatPaginatorModule } from "@angular/material/paginator";
+import { DetailsComponent } from './details/details.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { MatPaginatorModule } from "@angular/material/paginator";
     MessagesComponent,
     PetComponent,
     WeightListComponent,
+    DetailsComponent,
   ],
   imports: [
     BrowserAnimationsModule,
@@ -26,7 +28,8 @@ import { MatPaginatorModule } from "@angular/material/paginator";
     MatTableModule,
     MatPaginatorModule
   ],
-  providers: [],
+  providers: [
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
