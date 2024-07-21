@@ -1,9 +1,8 @@
 <div class="pet">
   <h2 class="pet-name">{{currentPet.name}}</h2>
-  <p class="pet-species">{{currentPet.species}}</p>
-  <p class="pet-breed">{{currentPet.breed}}</p>
-  <p class="pet-birth">Birth: {{currentPet.birth | date}}</p>
-  <p class="pet-adoption">Adoption: {{currentPet.adoption | date}}</p>
+  <p class="pet-species">{{currentPet.species}} {{currentPet.breed}}</p>
+  <p class="pet-birth">Born on {{currentPet.birth | date}}</p>
+  <p class="pet-adoption">Adopted on {{currentPet.adoption | date}}</p>
   <p class="pet-death" *ngIf="currentPet.death; else aliveTemplate">Death: {{currentPet.death | date}}</p>
   <ng-template #aliveTemplate>
     <p class="pet-alive">Alive</p>
@@ -13,6 +12,8 @@
       <li *ngFor="let color of currentPet.colors">{{color}}</li>
     </ul>
   </div>
-  <button type="button" id="pet-{{currentPet.id}}"
-    (click)="loadWeights(currentPet.id)">Load weights</button>
+  <div class="pet-actions">
+    <button type="button" id="pet-{{currentPet.id}}"
+      (click)="loadWeights(currentPet.id)">Load weights</button>
+  </div>
 </div>
