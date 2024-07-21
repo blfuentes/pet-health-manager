@@ -11,6 +11,7 @@ import { PetComponent } from './pet/pet.component';
 import { WeightListComponent } from './weight-list/weight-list.component';
 import { MatPaginatorModule } from "@angular/material/paginator";
 import { DetailsComponent } from './details/details.component';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,8 @@ import { DetailsComponent } from './details/details.component';
     MatPaginatorModule
   ],
   providers: [
+  
+    provideAnimationsAsync()
   ],
   bootstrap: [AppComponent],
 })
