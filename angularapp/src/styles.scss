@@ -1,21 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
 
-@import url('https://fonts.googleapis.com/css2?family=Calibri:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Calibri:wght@300;400;500;700&display=swap');
 
 
 html, body { height: 100%; }
 body {
     margin: 0;
-    font-family: 'Calibri', sans-serif !important;
 }
 
-.mat-typography, .mat-typography * {
-  font-family: 'Calibri', sans-serif !important;
-}
-
-  .mat-h1, .mat-headline-5, .mat-typography .mat-h1, .mat-typography .mat-headline-5, .mat-typography h1 {
-    font-family: 'Calibri', sans-serif !important;
-  }
 
 /* Variables */
 @property --primary-color {

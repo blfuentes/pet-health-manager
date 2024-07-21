@@ -6,7 +6,7 @@ import { MatTableDataSource } from '@angular/material/table';
 @Component({
   selector: 'app-weight-list',
   templateUrl: './weight-list.component.html',
-  styleUrl: './weight-list.component.css',
+  styleUrl: './weight-list.component.scss',
 })
 export class WeightListComponent {
   @Input() currentWeights: Weight[] = [];

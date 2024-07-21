@@ -7,7 +7,7 @@ import { Pet } from "./models/pet";
 @Component({
   selector: "app-pets",
   templateUrl: "./pets.component.html",
-  styleUrls: ["./pets.component.css"]
+  styleUrls: ["./pets.component.scss"]
 })
 export class PetsComponent {
   constructor(private petService: PetsService) { }

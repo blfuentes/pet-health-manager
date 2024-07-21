@@ -5,7 +5,7 @@ import { WeightService } from '../weight-list/services/weight.service';
 @Component({
   selector: 'app-pet',
   templateUrl: './pet.component.html',
-  styleUrl: './pet.component.css',
+  styleUrl: './pet.component.scss',
 })
 export class PetComponent {
   @Input() currentPet!: Pet;
