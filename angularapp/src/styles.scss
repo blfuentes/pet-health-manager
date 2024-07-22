@@ -3,7 +3,7 @@
 
 @include mat.core();
 
-// Use the default configuration.
+// Set my typography to use the Calibri font
 $my-typography: mat.m2-define-typography-config(
   $font-family: "Calibri, sans-serif"
 );
@@ -21,7 +21,6 @@ html, body {
 
 body {
   margin: 0;
-  font-family: Calibri, sans-serif;
 }
 
 
