@@ -11,10 +11,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution", "Solution", "{CF
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
 		Directory.Packages.props = Directory.Packages.props
+		.config\dotnet-tools.json = .config\dotnet-tools.json
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "application", "application\application.csproj", "{7F91D32F-4B19-45DB-8607-0D123049036F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "application", "application\application.csproj", "{7F91D32F-4B19-45DB-8607-0D123049036F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -24,6 +24,6 @@ export class PetsComponent {
   }
 
   getPet(petid: number) {
-    this.petService.loadPet(petid).subscribe(pet => this.currentPet = pet);
+    this.petService.loadPet(petid, false).subscribe(pet => this.currentPet = pet);
   }
 }

@@ -22,9 +22,9 @@ public class PetsController(IMediator mediator) : ControllerBase
 
     // GET api/<PetsController>/5
     [HttpGet("{id}")]
-    public async Task<GetPetResponse> Get(int id)
+    public async Task<GetPetResponse> Get(int id, bool weight)
     {
-        var pet = await mediator.Send(new GetPetQuery(id));
+        var pet = await mediator.Send(new GetPetQuery(id, weight));
         return pet;
     }
 

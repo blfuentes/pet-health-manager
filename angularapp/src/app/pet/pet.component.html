@@ -12,6 +12,9 @@
       <li *ngFor="let color of currentPet.colors">{{color}}</li>
     </ul>
   </div>
+  <div class="pet-image-container">
+    <img src="{{currentPet.imgContent}}" alt="{{currentPet.name}}"/>
+  </div>
   <div class="pet-actions">
     <button type="button" id="pet-{{currentPet.id}}"
       (click)="loadWeights(currentPet.id)">Load weights</button>

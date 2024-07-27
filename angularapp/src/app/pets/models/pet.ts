@@ -10,4 +10,5 @@ export interface Pet {
   adoption: Date;
   colors: string[];
   weights: Weight[];
+  imgContent: string;
 }

@@ -15,7 +15,7 @@ public class GetPets
 
     }
 
-    public class GetPetsHandler(ApiDbContext context, IMapper mapper, ILogger<GetPetsHandler> logger) 
+    public class GetPetsHandler(ApiDbContext context, IMapper mapper, ILogger<GetPetsHandler> logger)
         : IRequestHandler<GetPetsQuery, IEnumerable<GetPetsResponse>>
     {
         public async Task<IEnumerable<GetPetsResponse>> Handle(GetPetsQuery request, CancellationToken cancellationToken)
@@ -47,5 +47,6 @@ public class GetPets
         public DateTime Birth { get; set; }
         public DateTime? Death { get; set; }
         public DateTime Adoption { get; set; }
+        public required string ImgContent { get; set; }
     }
 }
