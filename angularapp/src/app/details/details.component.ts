@@ -1,6 +1,4 @@
 import { Component, Input } from '@angular/core';
-import { Pet } from '../pets/models/pet';
-import { PetsService } from '../pets/services/pets.service';
 import { WeightService } from '../weight-list/services/weight.service';
 import { Weight } from '../weight-list/models/weight';
 
@@ -16,6 +14,17 @@ export class DetailsComponent {
 
 
   ngOnInit(): void {
-    this.weightsService.currentWeights.subscribe((weights) => this.currentWeights = weights);
+    this.weightsService.currentWeights.subscribe((weights) => {
+      if (weights) {
+        // Convert the date property to a Date object if it's not already
+        weights.forEach(weight => {
+          if (!(weight.date instanceof Date)) {
+            weight.date = new Date(weight.date);
+          }
+        });
+      }
+      let sortedWeights =  weights?.sort((a, b) => b.date.getTime() - a.date.getTime());
+      this.currentWeights = sortedWeights;
+    });
   }
 }
