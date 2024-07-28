@@ -18,9 +18,9 @@ public class ApiDbContext : DbContext
     public ApiDbContext() { }
 
     public ApiDbContext
-        (DbContextOptions<ApiDbContext> options, 
-        IPublisher publisher, 
-        ILogger<ApiDbContext> logger, 
+        (DbContextOptions<ApiDbContext> options,
+        IPublisher publisher,
+        ILogger<ApiDbContext> logger,
         IConfiguration configuration) : base(options)
     {
         _publisher = publisher;
@@ -35,6 +35,8 @@ public class ApiDbContext : DbContext
     public DbSet<Color> Colors => Set<Color>();
 
     public DbSet<WeightRegistry> WeightRegistries => Set<WeightRegistry>();
+
+    public DbSet<EventAnnotation> EventAnnotations => Set<EventAnnotation>();
 
     public async Task BeginTransactionAsync()
     {
