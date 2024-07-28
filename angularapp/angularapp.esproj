@@ -10,6 +10,7 @@
     <BuildOutputFolder>$(MSBuildProjectDirectory)\dist\angularapp</BuildOutputFolder>
     <!--do not build typescript.. get rid of build errors-->
     <TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
+    <TypeScriptEnableIncrementalMSBuild>false</TypeScriptEnableIncrementalMSBuild>
   </PropertyGroup>
   <ItemGroup>
     <Folder Include="src\styles\" />

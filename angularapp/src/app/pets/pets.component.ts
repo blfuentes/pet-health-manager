@@ -23,7 +23,7 @@ export class PetsComponent {
     this.petService.getPets().subscribe(pets => this.pets = pets);
   }
 
-  getPet(petid: number) {
-    this.petService.loadPet(petid, false).subscribe(pet => this.currentPet = pet);
+  getPet(id: number) {
+    this.petService.loadPet({ petid: id, loadWeight: false }).subscribe(pet => this.currentPet = pet);
   }
 }

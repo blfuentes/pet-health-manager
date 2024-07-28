@@ -3,13 +3,15 @@ import { Injectable } from '@angular/core';
 import { apiConfig } from 'src/api.config';
 import { MessageService } from 'src/app/messages/services/message.service';
 import { Weight } from '../models/weight';
-import { Observable, catchError, of, tap } from 'rxjs';
+import { BehaviorSubject, Observable, catchError, of, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class WeightService {
   private weightUrl = `${apiConfig.baseUrl}:${apiConfig.port}/api/weightregistries`;
+  private weightsSource = new BehaviorSubject<Weight[] | undefined>(undefined);
+  currentWeights = this.weightsSource.asObservable();
 
   constructor(
     private http: HttpClient,
@@ -22,7 +24,10 @@ export class WeightService {
 
   loadWeights(petid: number): Observable<Weight[]> {
     return this.http.get<Weight[]>(`${this.weightUrl}/${petid}`).pipe(
-      tap((_) => this.log(`getting weight data for pet ${petid}`)),
+      tap((weights) => {
+        this.log(`getting weight data for pet ${petid}`);
+        this.weightsSource.next(weights); // Update the current weight data
+      }),
       catchError(this.handleError<Weight[]>('loadWeight', undefined))
     );
   }

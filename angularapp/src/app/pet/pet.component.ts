@@ -1,7 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Pet } from '../pets/models/pet';
 import { WeightService } from '../weight-list/services/weight.service';
-import { PetsService } from '../pets/services/pets.service';
 
 @Component({
   selector: 'app-pet',
@@ -11,15 +10,11 @@ import { PetsService } from '../pets/services/pets.service';
 export class PetComponent {
   @Input() currentPet!: Pet;
 
-  constructor(public petsService: PetsService, public weightService: WeightService) {}
+  constructor(public weightService: WeightService) {}
 
-  loadWeights(petid: number) {
-    this.petsService
-      .loadPet(petid, true)
-      .subscribe((pet) => this.currentPet = pet);
-
-    //this.weightService
-    //  .loadWeights(petid)
-    //  .subscribe((weights) => (this.currentPet.weights = weights));
+  loadWeights(id: number) {
+    this.weightService
+      .loadWeights(id)
+      .subscribe((weights) => this.currentPet.weights = weights);
   }
 }

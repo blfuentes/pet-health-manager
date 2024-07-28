@@ -1,6 +1,6 @@
 import { apiConfig } from "../../../api.config"; // Import the configuration
-import { catchError, map, tap } from "rxjs/operators";
-import { HttpClient, HttpHeaders, HttpParams } from "@angular/common/http";
+import { catchError, tap } from "rxjs/operators";
+import { HttpClient } from "@angular/common/http";
 import { MessageService } from "../../messages/services/message.service";
 import { Injectable } from "@angular/core";
 import { BehaviorSubject, Observable, of } from "rxjs";
@@ -32,13 +32,13 @@ export class PetsService {
     );
   }
 
-  loadPet(petid: number, loadWeight: boolean): Observable<Pet> {
-     return this.http.get<Pet>(`${this.petUrl}/${petid}/?weight=${loadWeight}`).pipe(
+  loadPet(options: { petid: number, loadWeight: boolean }): Observable<Pet> {
+     return this.http.get<Pet>(`${this.petUrl}/${options.petid}/?weight=${options.loadWeight}`).pipe(
        tap((pet) => {
-         this.log(`getting data for pet ${petid}`);
+         this.log(`getting data for pet ${options.petid}`);
          this.petSource.next(pet); // Update the current pet data
        }),
-       catchError(this.handleError<Pet>('loadPet', undefined))
+       catchError(this.handleError<Pet>('loadPet'))
      );
   }
 

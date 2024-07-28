@@ -8,7 +8,9 @@ export const pet1: Pet = {
   colors: ["Colors1", "Colors2"],
   adoption: new Date(),
   birth: new Date(),
-  death: undefined
+  death: undefined,
+  imgContent: "",
+  weights: []
 }
 
 

@@ -1,6 +1,8 @@
 import { Component, Input } from '@angular/core';
 import { Pet } from '../pets/models/pet';
 import { PetsService } from '../pets/services/pets.service';
+import { WeightService } from '../weight-list/services/weight.service';
+import { Weight } from '../weight-list/models/weight';
 
 @Component({
   selector: 'app-details',
@@ -8,12 +10,12 @@ import { PetsService } from '../pets/services/pets.service';
   styleUrl: './details.component.scss'
 })
 export class DetailsComponent {
-  currentPet: Pet | undefined;
+  currentWeights: Weight[] | undefined;
 
-  constructor(private petsService: PetsService) { }
+  constructor(private weightsService: WeightService) { }
 
 
   ngOnInit(): void {
-    this.petsService.currentPet.subscribe(pet => this.currentPet = pet);
+    this.weightsService.currentWeights.subscribe((weights) => this.currentWeights = weights);
   }
 }

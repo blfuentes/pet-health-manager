@@ -19,7 +19,7 @@ builder.Services.AddCors(options =>
     options.AddPolicy("AllowAngularApp",
         builder =>
         {
-            builder.WithOrigins("https://localhost:4200")
+            builder.WithOrigins("https://localhost:4200", "https://127.0.0.1:4200")
                    .AllowAnyMethod()
                    .AllowAnyHeader();
         });
@@ -53,7 +53,7 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-app.Run();
+await app.RunAsync();
 
 static void CreateDbIfNotExists(IHost host)
 {

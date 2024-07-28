@@ -3,7 +3,7 @@
   <p class="pet-species">{{currentPet.species}} {{currentPet.breed}}</p>
   <p class="pet-birth">Born on {{currentPet.birth | date}}</p>
   <p class="pet-adoption">Adopted on {{currentPet.adoption | date}}</p>
-  <p class="pet-death" *ngIf="currentPet.death; else aliveTemplate">Death: {{currentPet.death | date}}</p>
+  <p class="pet-death" *ngIf="currentPet.death; else aliveTemplate">Crossed rainbow on {{currentPet.death | date}}</p>
   <ng-template #aliveTemplate>
     <p class="pet-alive">Alive</p>
   </ng-template>

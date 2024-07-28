@@ -28,7 +28,9 @@ public class GetPet
                     await context.Entry(pet).Collection(p => p.WeightRegistries).LoadAsync(cancellationToken);
             }
 
-            return mapper.Map<GetPetResponse>(pet);
+            var petResponse = mapper.Map<GetPetResponse>(pet);
+
+            return petResponse;
         }
     }
 
