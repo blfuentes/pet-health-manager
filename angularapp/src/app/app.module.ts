@@ -12,7 +12,8 @@ import { WeightListComponent } from './weight-list/weight-list.component';
 import { MatPaginatorModule } from "@angular/material/paginator";
 import { DetailsComponent } from './details/details.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import { DateFormatPipe } from './pipes/dateformat.pipe'; // Adjust the path as needed
+import { DateFormatPipe } from './pipes/dateformat.pipe';
+import { EventListComponent } from './event-list/event-list.component'; // Adjust the path as needed
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import { DateFormatPipe } from './pipes/dateformat.pipe'; // Adjust the path as 
     WeightListComponent,
     DetailsComponent,
     DateFormatPipe,
+    EventListComponent,
   ],
   imports: [
     BrowserAnimationsModule,

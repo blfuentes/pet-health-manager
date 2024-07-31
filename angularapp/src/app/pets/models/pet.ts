@@ -1,3 +1,4 @@
+import { EventAnnotation } from "src/app/event-list/models/eventAnnotation";
 import { Weight } from "src/app/weight-list/models/weight";
 
 export interface Pet {
@@ -10,5 +11,6 @@ export interface Pet {
   adoption: Date;
   colors: string[];
   weights: Weight[];
+  eventAnnotations: EventAnnotation[];
   imgContent: string;
 }

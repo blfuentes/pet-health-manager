@@ -12,8 +12,8 @@ using application.Infrastructure;
 namespace application.Migrations
 {
     [DbContext(typeof(ApiDbContext))]
-    [Migration("20240728191102_AddedEventApointment")]
-    partial class AddedEventApointment
+    [Migration("20240731181934_AddedEventApointmentTable")]
+    partial class AddedEventApointmentTable
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -52,6 +52,34 @@ namespace application.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Colors");
+                });
+
+            modelBuilder.Entity("application.Domain.Entities.EventAnnotation", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("EventType")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Note")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("PetId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PetId");
+
+                    b.ToTable("EventAnnotations");
                 });
 
             modelBuilder.Entity("application.Domain.Entities.Pet", b =>
@@ -131,6 +159,17 @@ namespace application.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("application.Domain.Entities.EventAnnotation", b =>
+                {
+                    b.HasOne("application.Domain.Entities.Pet", "Pet")
+                        .WithMany("EventAnnotations")
+                        .HasForeignKey("PetId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Pet");
+                });
+
             modelBuilder.Entity("application.Domain.Entities.WeightRegistry", b =>
                 {
                     b.HasOne("application.Domain.Entities.Pet", "Pet")
@@ -144,6 +183,8 @@ namespace application.Migrations
 
             modelBuilder.Entity("application.Domain.Entities.Pet", b =>
                 {
+                    b.Navigation("EventAnnotations");
+
                     b.Navigation("WeightRegistries");
                 });
 #pragma warning restore 612, 618

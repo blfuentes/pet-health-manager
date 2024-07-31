@@ -1,4 +1,7 @@
 <div class="details-container">
+  <div class="events-list">
+    <app-event-list *ngIf="currentEventAnnotations" [currentEventAnnotations]="currentEventAnnotations"></app-event-list>
+  </div>
   <div class="weights-list">
     <app-weight-list *ngIf="currentWeights" [currentWeights]="currentWeights"></app-weight-list>
   </div>

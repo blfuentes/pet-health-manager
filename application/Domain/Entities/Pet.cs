@@ -14,6 +14,8 @@ public class Pet
 
     public ICollection<WeightRegistry> WeightRegistries { get; set; } = new HashSet<WeightRegistry>();
 
+    public ICollection<EventAnnotation> EventAnnotations { get; set; } = new HashSet<EventAnnotation>();
+
     public DateTime Birth { get; set; }
 
     public DateTime? Death { get; set; }

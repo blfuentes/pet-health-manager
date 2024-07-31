@@ -62,8 +62,9 @@ namespace application.Migrations
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("EventType")
-                        .HasColumnType("int");
+                    b.Property<string>("EventType")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Note")
                         .HasColumnType("nvarchar(max)");
@@ -158,7 +159,7 @@ namespace application.Migrations
             modelBuilder.Entity("application.Domain.Entities.EventAnnotation", b =>
                 {
                     b.HasOne("application.Domain.Entities.Pet", "Pet")
-                        .WithMany()
+                        .WithMany("EventAnnotations")
                         .HasForeignKey("PetId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -179,6 +180,8 @@ namespace application.Migrations
 
             modelBuilder.Entity("application.Domain.Entities.Pet", b =>
                 {
+                    b.Navigation("EventAnnotations");
+
                     b.Navigation("WeightRegistries");
                 });
 #pragma warning restore 612, 618

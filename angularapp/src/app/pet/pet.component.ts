@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Pet } from '../pets/models/pet';
 import { WeightService } from '../weight-list/services/weight.service';
+import { EventAnnotationService } from '../event-list/services/event.service';
 
 @Component({
   selector: 'app-pet',
@@ -10,11 +11,15 @@ import { WeightService } from '../weight-list/services/weight.service';
 export class PetComponent {
   @Input() currentPet!: Pet;
 
-  constructor(public weightService: WeightService) {}
+  constructor(public weightService: WeightService, public eventAnnotationsService: EventAnnotationService) {}
 
-  loadWeights(id: number) {
+  loadInfo(id: number) {
     this.weightService
       .loadWeights(id)
-      .subscribe((weights) => this.currentPet.weights = weights);
+      .subscribe((weights) => (this.currentPet.weights = weights));
+
+    this.eventAnnotationsService
+      .loadEventAnnotations(id)
+      .subscribe((eventAnnotations) =>  (this.currentPet.eventAnnotations = eventAnnotations))
   }
 }

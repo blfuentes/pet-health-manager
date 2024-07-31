@@ -1,4 +1,7 @@
-﻿namespace application.Domain.Entities;
+﻿using System.ComponentModel;
+using System.Text.Json.Serialization;
+
+namespace application.Domain.Entities;
 
 public class EventAnnotation
 {
@@ -8,20 +11,28 @@ public class EventAnnotation
 
     public DateTime Date { get; set; }
 
-    public EventType EventType { get; set; }
+    [JsonConverter(typeof(JsonStringEnumConverter))]
+    public EventAnnotationType EventType { get; set; }
 
     public string? Note { get; set; }
 
     public virtual required Pet Pet { get; set; }
 }
 
-public enum EventType
+public enum EventAnnotationType
 {
+    [Description("Birth")]
     Birth,
+    [Description("Death")]
     Death,
+    [Description("Adoption")]
     Adoption,
+    [Description("Nail trimming")]
     NailTrimming,
+    [Description("Vet visit")]
     VetVisit,
+    [Description("Grooming")]
     Grooming,
+    [Description("Other")]
     Other
 }
