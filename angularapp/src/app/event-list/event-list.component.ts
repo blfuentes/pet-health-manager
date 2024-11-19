@@ -4,9 +4,10 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
-  selector: 'app-event-list',
-  templateUrl: './event-list.component.html',
-  styleUrl: './event-list.component.scss'
+    selector: 'app-event-list',
+    templateUrl: './event-list.component.html',
+    styleUrl: './event-list.component.scss',
+    standalone: false
 })
 export class EventListComponent {
   @Input() currentEventAnnotations: EventAnnotation[] = [];

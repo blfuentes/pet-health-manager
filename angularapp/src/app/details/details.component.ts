@@ -5,9 +5,10 @@ import { EventAnnotation } from '../event-list/models/eventAnnotation';
 import { EventAnnotationService } from '../event-list/services/event.service';
 
 @Component({
-  selector: 'app-details',
-  templateUrl: './details.component.html',
-  styleUrl: './details.component.scss',
+    selector: 'app-details',
+    templateUrl: './details.component.html',
+    styleUrl: './details.component.scss',
+    standalone: false
 })
 export class DetailsComponent {
   currentWeights: Weight[] | undefined;

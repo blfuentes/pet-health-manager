@@ -5,9 +5,10 @@ import { Pet } from "./models/pet";
 
 
 @Component({
-  selector: "app-pets",
-  templateUrl: "./pets.component.html",
-  styleUrls: ["./pets.component.scss"]
+    selector: "app-pets",
+    templateUrl: "./pets.component.html",
+    styleUrls: ["./pets.component.scss"],
+    standalone: false
 })
 export class PetsComponent {
   constructor(private petService: PetsService) { }

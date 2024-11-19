@@ -4,9 +4,10 @@ import { WeightService } from '../weight-list/services/weight.service';
 import { EventAnnotationService } from '../event-list/services/event.service';
 
 @Component({
-  selector: 'app-pet',
-  templateUrl: './pet.component.html',
-  styleUrl: './pet.component.scss',
+    selector: 'app-pet',
+    templateUrl: './pet.component.html',
+    styleUrl: './pet.component.scss',
+    standalone: false
 })
 export class PetComponent {
   @Input() currentPet!: Pet;

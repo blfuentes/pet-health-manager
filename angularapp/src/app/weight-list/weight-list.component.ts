@@ -4,9 +4,10 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
-  selector: 'app-weight-list',
-  templateUrl: './weight-list.component.html',
-  styleUrl: './weight-list.component.scss',
+    selector: 'app-weight-list',
+    templateUrl: './weight-list.component.html',
+    styleUrl: './weight-list.component.scss',
+    standalone: false
 })
 export class WeightListComponent {
   @Input() currentWeights: Weight[] = [];
