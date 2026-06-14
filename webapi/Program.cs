@@ -2,6 +2,7 @@ using application;
 using application.Data;
 using application.Infrastructure;
 using Serilog;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -27,7 +28,7 @@ builder.Services.AddCors(options =>
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddAutoMapper(typeof(Application));
+builder.Services.AddAutoMapper(cfg => { }, Assembly.GetExecutingAssembly());
 builder.Services.AddMediator();
 builder.Services.AddPersistence(builder.Configuration);
 
