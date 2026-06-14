@@ -11,6 +11,8 @@ export const pet1: Pet = {
   death: undefined,
   imgContent: "",
   weights: []
+  ,
+  eventAnnotations: []
 }
 
 
