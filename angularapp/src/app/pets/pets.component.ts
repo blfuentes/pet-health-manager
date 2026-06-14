@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, ChangeDetectionStrategy } from "@angular/core";
 
 import { PetsService } from "./services/pets.service";
 import { Pet } from "./models/pet";
@@ -8,6 +8,7 @@ import { Pet } from "./models/pet";
     selector: "app-pets",
     templateUrl: "./pets.component.html",
     styleUrls: ["./pets.component.scss"],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class PetsComponent {

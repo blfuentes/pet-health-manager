@@ -1,4 +1,4 @@
-import { Component, Input, SimpleChanges, ViewChild } from '@angular/core';
+import { Component, Input, SimpleChanges, ViewChild, ChangeDetectionStrategy } from '@angular/core';
 import { Weight } from './models/weight';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
@@ -7,6 +7,7 @@ import { MatTableDataSource } from '@angular/material/table';
     selector: 'app-weight-list',
     templateUrl: './weight-list.component.html',
     styleUrl: './weight-list.component.scss',
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class WeightListComponent {

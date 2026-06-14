@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 import { Pet } from '../pets/models/pet';
 import { WeightService } from '../weight-list/services/weight.service';
 import { EventAnnotationService } from '../event-list/services/event.service';
@@ -7,6 +7,7 @@ import { EventAnnotationService } from '../event-list/services/event.service';
     selector: 'app-pet',
     templateUrl: './pet.component.html',
     styleUrl: './pet.component.scss',
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class PetComponent {

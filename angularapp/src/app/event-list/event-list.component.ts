@@ -1,4 +1,4 @@
-import { Component, Input, SimpleChanges, ViewChild } from '@angular/core';
+import { Component, Input, SimpleChanges, ViewChild, ChangeDetectionStrategy } from '@angular/core';
 import { EventAnnotation } from './models/eventAnnotation';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
@@ -7,6 +7,7 @@ import { MatTableDataSource } from '@angular/material/table';
     selector: 'app-event-list',
     templateUrl: './event-list.component.html',
     styleUrl: './event-list.component.scss',
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class EventListComponent {

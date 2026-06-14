@@ -4,7 +4,7 @@ import { PetsComponent } from './pets/pets.component';
 import { MatTableModule } from '@angular/material/table';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { BrowserModule } from "@angular/platform-browser";
-import { provideHttpClient } from "@angular/common/http";
+import { provideHttpClient, withXhr } from "@angular/common/http";
 import { NgModule } from "@angular/core";
 import { MessagesComponent } from './messages/messages.component';
 import { PetComponent } from './pet/pet.component';
@@ -35,7 +35,7 @@ import { EventListComponent } from './event-list/event-list.component'; // Adjus
   ],
   providers: [
     provideAnimationsAsync(),
-    provideHttpClient()
+    provideHttpClient(withXhr())
   ],
   bootstrap: [AppComponent],
 })

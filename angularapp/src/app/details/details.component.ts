@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 import { WeightService } from '../weight-list/services/weight.service';
 import { Weight } from '../weight-list/models/weight';
 import { EventAnnotation } from '../event-list/models/eventAnnotation';
@@ -8,6 +8,7 @@ import { EventAnnotationService } from '../event-list/services/event.service';
     selector: 'app-details',
     templateUrl: './details.component.html',
     styleUrl: './details.component.scss',
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class DetailsComponent {
